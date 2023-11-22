@@ -24,3 +24,5 @@ let sendMsg = (msg) => {
     console.log("Sending Message: ", msg);
     socket.send(msg);
 }
+
+export { connect, sendMsg };
