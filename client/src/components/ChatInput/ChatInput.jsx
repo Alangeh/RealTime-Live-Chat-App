@@ -1,3 +1,12 @@
 import React, {Component} from 'react';
-import './ChatHistory.scss';
-import Message from '../Message/Message';
+import './ChatInput.scss';
+
+class ChatInput extends Component {
+    render(){
+        return(
+            <div className='ChatInput'>
+                <input onKeyDown={this.props.send} placeholder='Type a message and press enter to send' />
+            </div>
+        )
+    }
+}
