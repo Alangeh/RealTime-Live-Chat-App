@@ -6,21 +6,30 @@ import '/App.css';
 import { connect, sendMsg } from './api';
 
 class App extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             ChatHistory: []
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         connect((msg) => {
             console.log("New Message")
             this.setState(prevState => ({
-                chatHistory : [...prevState.chatHistory, msg]
+                chatHistory: [...prevState.chatHistory, msg]
             }))
             console.log(this.state);
         })
     }
-
+    render() {
+        return (
+            <div className='App'>
+                <Header />
+                <ChatHistory chatHistory={this.state.chatHistory} />
+                <ChatInput send={this.send} />
+            </div>
+        );
+    }
 }
+export default App;
